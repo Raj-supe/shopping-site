@@ -46,3 +46,50 @@ h6 {
     padding: 12px 72px;
     border-radius: 3px !important;
 }
+.removeAll{
+    cursor: pointer;
+    text-align: right;
+    float: right;
+    color: red;
+}
+.btnCheckout{
+    background-color: #9fc4f3;
+    border: 0;
+    border-radius: 18px;
+    padding: 5px 15px;
+}
+.btnForQty{
+    background-color: #d9d9d9;
+    border-radius: 50%;
+    font-size: 14px;
+    margin: 0 7px;
+    border: none;
+    width: 24px;
+    height: 24px;
+    vertical-align: middle;
+
+    i{
+        position: relative;
+        top: -1px;
+        font-size: 12px;
+    }
+}
+.cart-items{
+    background-color: #fff;
+    padding: 25px;
+    box-shadow: 0 8px 10px 1px rgb(0 0 0 / 14%), 0 3px 14px 2px rgb(0 0 0 / 12%), 0 5px 5px -3px rgb(0 0 0 / 30%);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+}
+.cart-product{
+    max-height: 500px;
+    overflow-y: auto;
+}
+.removebtn{
+    color: red;
+    cursor: pointer;
+}

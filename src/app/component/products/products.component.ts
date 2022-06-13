@@ -10,36 +10,37 @@ import { CartService } from 'src/app/service/cart.service';
 export class ProductsComponent implements OnInit {
 
   public productList : any ;
-  public filterCategory : any
-  searchKey:string ="";
+  public filterCategory : any;
+  categoryItems: any;
   constructor(private api : ApiService, private cartService : CartService) { }
 
   ngOnInit(): void {
-    this.api.getProduct()
+    this.api.getProductItem()
     .subscribe(res=>{
       this.productList = res;
       this.filterCategory = res;
-      this.productList.forEach((a:any) => {
-        if(a.category ==="women's clothing" || a.category ==="men's clothing"){
-          a.category ="fashion"
+      this.productList.forEach((item:any) => {
+        if(item ==="women's clothing" || item ==="men's clothing"){
+          item ="fashion"
         }
-        Object.assign(a,{quantity:1,total:a.price});
+        Object.assign(item,{quantity:1,total:item.price});
       });
-      console.log(this.productList)
     });
 
-    this.cartService.search.subscribe((val:any)=>{
-      this.searchKey = val;
-    })
+    this.api.getCategoryItem()
+    .subscribe(categoryItemData=>{
+      this.categoryItems = categoryItemData;
+    });
   }
-  addtocart(item: any){
+
+  addTocart(item: any){
     this.cartService.addtoCart(item);
   }
-  filter(category:string){
-    this.filterCategory = this.productList
-    .filter((a:any)=>{
-      if(a.category == category || category==''){
-        return a;
+
+  filterItemsByCategory(category: string) {
+    this.filterCategory = this.productList.filter((item: any) => {
+      if(item.category == category || category==''){
+           return item;
       }
     })
   }

@@ -1,31 +1,43 @@
 .card-top {
-    position: relative;
     display: flex;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background: #fff;
-    background-clip: border-box;
     border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: .25rem;
+    padding: 10px 0px;
 }
 
 .item img {
     width: 64px;
 }
 
+.product-container{
+    width: 94%;
+    margin: 0 auto;
+}
 .item {
-    margin: 0px 15px;
-    text-align: center;
+    display: flex;
 }
 
-.item a:hover {
-    color: blue;
+.item a {
+    color: #000;
+    cursor: pointer;
+    margin: 0 8px;
+    text-transform: capitalize;
+
+    &:hover{
+      color: #000;
+      font-weight: 700;   
+    }
 }
 
 .card {
     padding: 20px;
     margin: 50px;
+}
+
+.card .btn-primary{
+    background-color: #9fc4f3;
+    border-color: #9fc4f3;
+    color: #000;
+    border-radius: 20px;
 }
 
 .card img {

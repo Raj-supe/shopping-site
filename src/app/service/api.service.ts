@@ -1,17 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {map} from 'rxjs/operators';
+
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
+  productUrl: string = "https://fakestoreapi.com/products";
+  categoryUrl: string = "https://fakestoreapi.com/products/categories";
 
   constructor(private http : HttpClient) { }
 
-  getProduct(){
-    return this.http.get<any>("https://fakestoreapi.com/products")
-    .pipe(map((res:any)=>{
-      return res;
-    }))
+  getProductItem(){
+    return this.http.get<any>(this.productUrl)
+  }
+
+  getCategoryItem() {
+    return this.http.get<any>(this.categoryUrl)
   }
 }
